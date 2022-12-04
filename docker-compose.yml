@@ -1,0 +1,15 @@
+#docker-compose.yml (Base)
+version: "3.9"
+services:
+  db:
+    image: "postgres:14.5"
+    container_name: plantLetter_db
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=localpassword
+      - POSTGRES_DB=plant
